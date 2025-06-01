@@ -9,7 +9,7 @@ Aplicación mínima de lista de tareas construida con React, diseñada para esca
 
 ## 🚀 Cómo iniciar
 ```bash
-npx create-react-app mi-lista-de-tareas --template vanilla
+npx create-react-app mi-lista-de-tareas 
 cd mi-lista-de-tareas
 npm start
 🧩 Estructura actual (Fase 1)
