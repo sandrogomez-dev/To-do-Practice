@@ -1,34 +1,53 @@
+# React Todo List - Fase 2
 
-# React Todo List - Minimal Starter
-
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![Status](https://img.shields.io/badge/status-phase_1_basic_components-blue)
-
-## 📋 Descripción
-Aplicación mínima de lista de tareas construida con React, diseñada para escalar progresivamente siguiendo buenas prácticas.
-
-## 🚀 Cómo iniciar
-```bash
-npx create-react-app mi-lista-de-tareas --template vanilla
-cd mi-lista-de-tareas
-npm start
-🧩 Estructura actual (Fase 1)
-plaintext
+```jsx
+// 📂 Estructura de archivos
 src/
-├── App.js         # Componente raíz
-├── App.css        # Estilos globales
-├── index.js       # Punto de entrada
+├── App.js           // Estado principal
+├── App.css          // Estilos modernos
+├── index.js         // Punto de entrada
 └── components/
-    ├── TodoList.js # Contenedor principal
-    ├── TodoItem.js # Item individual
-    └── AddTodo.js  # Formulario básico
-🛠 Características implementadas
-Componentes estáticos sin estado
+    ├── TodoList.js  // Lógica de lista
+    ├── TodoItem.js  // Item interactivo
+    └── AddTodo.js   // Formulario controlado
+css
+/* 🎨 Variables CSS (App.css) */
+:root {
+  --primary: #4361ee;
+  --shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
 
-Props hardcodeadas para demostración
+.todo-item {
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+}
+jsx
+// 🛠 Código clave (App.js)
+const [todos, setTodos] = useState(() => {
+  const saved = localStorage.getItem('todos');
+  return saved ? JSON.parse(saved) : [];
+});
 
-Estilos básicos con CSS
+useEffect(() => {
+  localStorage.setItem('todos', JSON.stringify(todos));
+}, [todos]);
+bash
+# 🚀 Comandos para ejecutar
+npm install   # Instalar dependencias
+npm start    # Iniciar servidor
+npm run build # Crear versión producción
+🌟 Características
+✅ Estado persistente (localStorage)
 
-Estructura modular de componentes
+✅ Diseño responsive
 
-JSX limpio sin lógica compleja
+✅ Animaciones CSS
+
+✅ Componentes reutilizables
+
+📌 Próximos pasos
+Filtros (All/Active/Completed)
+
+Tests con Jest
+
+Drag-and-drop
